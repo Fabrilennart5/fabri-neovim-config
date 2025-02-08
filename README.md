@@ -23,6 +23,8 @@ Esta es mi configuración personalizada de Neovim, diseñada para maximizar la p
 - **Resaltado de sintaxis**: `treesitter` para un análisis y resaltado de código mejorado.
 - **Integración con Git**: `gitsigns.nvim` y `diffview.nvim` para ver cambios en tiempo real y gestionar repositorios de manera eficiente.
 - **Ejecución de código**: `code_runner.nvim` para ejecutar fragmentos de código directamente desde Neovim.
+- **Formateo de código**: `format-on-save.nvim` para guardar el código correctamente formateado.
+
 
 ### Personalización y Extras
 - **Transparencia**: `transparent.nvim` para una ventana de Neovim transparente (opcional).
@@ -67,5 +69,3 @@ Aquí tienes una lista de los plugins principales que forman parte de esta confi
 Asegúrate de tener Neovim instalado (versión 0.9 o superior).
 
 Abre Neovim y los plugins se instalarán automáticamente gracias a lazy.nvim.
-
-
