@@ -36,7 +36,6 @@ require("lazy").setup({
 	require("plugins.lsp"),
 	require("plugins.autocompletion"),
 	require("plugins.gitsigns"),
-	require("plugins.alpha"),
 	require("plugins.blankline"),
 	require("plugins.extras"),
 	require("plugins.cord"),
@@ -52,4 +51,5 @@ require("lazy").setup({
 	require("plugins.git-messenger"),
 	require("plugins.obsidian"),
 	require("plugins.format_on_save"),
+	require("plugins.dashboard"),
 })
