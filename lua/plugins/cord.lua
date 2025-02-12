@@ -1,5 +1,5 @@
 return {
-  "vyfor/cord.nvim",
-  build = "./build || .\\build",
-  opts = {},
+	"vyfor/cord.nvim",
+	build = ":Cord update",
+	-- opts = {}
 }
