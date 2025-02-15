@@ -15,6 +15,7 @@ return {
 			},
 
 			-- Defino los formateadores específicos para cada tipo de archivo
+			-- si necesito otro lo puedo agregar aqui
 			formatter_by_ft = {
 				-- Uso google-java-format para archivos Java
 				java = formatters.shell({ cmd = { "google-java-format", "-" } }),
