@@ -132,6 +132,16 @@ return {
 			rust_analyzer = {},
 			-- LSP para SQL (sqlls).
 			sqlls = {},
+			-- LSP para Lua (lua_ls).
+			lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" }, -- Defino a 'vim' como una variable global para evitar advertencias.
+						},
+					},
+				},
+			},
 		}
 
 		-- Configuro Mason para que gestione la instalación de los LSPs.

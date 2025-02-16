@@ -29,12 +29,7 @@ return {
 				-- Uso sqlfmt para archivos SQL
 				sql = formatters.shell({ cmd = { "sqlfmt", "-" } }),
 
-				-- Uso prettier para archivos JavaScript, TypeScript, JSON, etc. (si los usas)
-				javascript = formatters.shell({ cmd = { "prettier", "--stdin-filepath", "%" } }),
-				typescript = formatters.shell({ cmd = { "prettier", "--stdin-filepath", "%" } }),
-				json = formatters.shell({ cmd = { "prettier", "--stdin-filepath", "%" } }),
-
-				-- Uso rustfmt para archivos Rust (si los usas)
+				-- Uso rustfmt para archivos Rust
 				rust = formatters.shell({ cmd = { "rustfmt" } }),
 
 				-- Uso stylua para archivos Lua

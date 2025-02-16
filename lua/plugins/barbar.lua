@@ -7,7 +7,7 @@ return {
 			"nvim-tree/nvim-web-devicons", -- Opcional: para mostrar iconos de archivos en las pestañas
 		},
 		init = function()
-			-- Desactivar la configuración automática de barbar.nvim (LazyVim lo hará por ti)
+			-- Desactivar la configuración automática de barbar.nvim
 			vim.g.barbar_auto_setup = false
 		end,
 		opts = {
