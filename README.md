@@ -1,6 +1,6 @@
 # Mi Configuración Personalizada de Neovim
 
-![Captura de pantalla de mi configuración de Neovim](https://pbs.twimg.com/media/GiWCjB5WgAAmXCH?format=jpg&name=large)
+![Captura de pantalla de mi configuración de Neovim](https://pbs.twimg.com/media/Gj7MJ2qXMAA_VEJ?format=jpg&name=large)
 
 Esta es mi configuración personalizada de Neovim, diseñada para maximizar la productividad y ofrecer una experiencia de desarrollo fluida. Utiliza una combinación de plugins modernos y optimizaciones para crear un entorno de programación eficiente y visualmente atractivo.
 
