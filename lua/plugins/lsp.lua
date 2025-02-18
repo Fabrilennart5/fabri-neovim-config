@@ -157,6 +157,8 @@ return {
 			"sqlfmt", -- Formateador para SQL.
 			"google-java-format", -- Formateador para Java (sigue el estilo de Google).
 			"checkstyle", -- Herramienta de análisis de código para Java (verifica el estilo y calidad del código).
+			"codelldb", -- Debugger para C/C++ usando LLDB.
+			"cpptools", -- Debugger para C/C++ usando Clangd.
 		})
 
 		-- Configuro 'mason-tool-installer' para que instale automáticamente las herramientas definidas.
