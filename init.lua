@@ -41,7 +41,7 @@ require("lazy").setup({
 	require("plugins.presence"),
 	require("plugins.nvimterm"),
 	require("plugins.codeium"),
-	require("plugins.tabby"),
+	require("plugins.barbar"),
 	require("plugins.cursor"),
 	require("plugins.flash"),
 	require("plugins.code_runner"),
@@ -54,4 +54,5 @@ require("lazy").setup({
 	require("plugins.dadbod"),
 	require("plugins.twilight"),
 	require("plugins.snacks"),
+	require("plugins.colorizer"),
 })
