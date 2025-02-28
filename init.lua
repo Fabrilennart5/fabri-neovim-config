@@ -47,7 +47,7 @@ require("lazy").setup({
 	require("plugins.code_runner"),
 	require("plugins.diffview"),
 	require("plugins.git-messenger"),
-	require("plugins.format_on_save"),
+	require("plugins.confort"),
 	require("plugins.dashboard"),
 	require("plugins.dap"),
 	require("plugins.comment"),
