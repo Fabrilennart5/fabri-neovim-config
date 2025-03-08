@@ -50,7 +50,7 @@ return {
 		require("lualine").setup({ -- Inicializa Lualine con las configuraciones definidas
 			options = {
 				icons_enabled = true, -- Activa íconos en la barra de estado para mayor claridad visual
-				theme = "gruvbox", -- Establece un tema visual para la barra (en este caso "nord")
+				theme = "dracula", -- Establece un tema visual para la barra (en este caso "dracula")
 				section_separators = { left = "", right = "" }, -- Separadores entre secciones de la barra de estado
 				component_separators = { left = "", right = "" }, -- Separadores entre componentes dentro de una sección
 				disabled_filetypes = { "alpha", "neo-tree" }, -- Tipos de archivos donde Lualine no se mostrará
