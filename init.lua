@@ -55,4 +55,5 @@ require("lazy").setup({
 	require("plugins.twilight"),
 	require("plugins.snacks"),
 	require("plugins.colorizer"),
+	require("plugins.csvview"),
 })

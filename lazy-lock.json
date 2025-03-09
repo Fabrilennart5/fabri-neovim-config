@@ -11,6 +11,7 @@
   "code_runner.nvim": { "branch": "main", "commit": "50a59cbc53e62cd6c171023935a19a79b4bf42fb" },
   "codeium.vim": { "branch": "main", "commit": "000de972de76f357c03da14f4f8dd9a969d4fe8c" },
   "conform.nvim": { "branch": "master", "commit": "db8a4a9edb217067b1d7a2e0362c74bfe9cc944d" },
+  "csvview.nvim": { "branch": "main", "commit": "ed446a55b4ff9297d9b94a955db3a2eca6cdb2b2" },
   "dashboard-nvim": { "branch": "master", "commit": "000448d837f6e7a47f8f342f29526c4d7e49e9ce" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
