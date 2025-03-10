@@ -56,4 +56,5 @@ require("lazy").setup({
 	require("plugins.snacks"),
 	require("plugins.colorizer"),
 	require("plugins.csvview"),
+	require("plugins.lazygit"),
 })
