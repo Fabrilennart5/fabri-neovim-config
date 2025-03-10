@@ -40,7 +40,7 @@ require("lazy").setup({
 	require("plugins.extras"),
 	require("plugins.presence"),
 	require("plugins.nvimterm"),
-	require("plugins.codeium"),
+	require("plugins.avante"),
 	require("plugins.barbar"),
 	require("plugins.cursor"),
 	require("plugins.flash"),
