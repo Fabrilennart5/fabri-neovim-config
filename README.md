@@ -1,71 +1,90 @@
-# Mi Configuración Personalizada de Neovim
+# Mi Configuración Personalizada de Neovim 🚀
 
 ![Captura de pantalla de mi configuración de Neovim](https://pbs.twimg.com/media/Gj7MJ2qXMAA_VEJ?format=jpg&name=large)
 
-Esta es mi configuración personalizada de Neovim, diseñada para maximizar la productividad y ofrecer una experiencia de desarrollo fluida. Utiliza una combinación de plugins modernos y optimizaciones para crear un entorno de programación eficiente y visualmente atractivo.
+Esta es mi configuración personalizada de Neovim, diseñada para maximizar la productividad y ofrecer una experiencia de desarrollo fluida. Utiliza una combinación de plugins modernos y optimizaciones para crear un entorno de programación eficiente y visualmente atractivo. 🎨
 
 ---
 
-## Características Principales
+## 📌 Requisitos
 
-### Interfaz y Estilo
-- **Temas personalizados**: Utilizo el tema `dracula` para un aspecto moderno y agradable a la vista.
-- **Barra de estado**: `lualine.nvim` para una barra de estado informativa y minimalista.
-- **Efectos visuales**: `flash.nvim` para animaciones y efectos en el cursor, mejorando la experiencia visual.
+Para utilizar esta configuración, necesitas cumplir con los siguientes requisitos:
 
-### Navegación y Gestión de Archivos
-- **Explorador de archivos**: `oil.nvim` para una gestión eficiente de archivos y directorios.
-- **Gestión de pestañas**: `barbar.nvim` para una navegación fluida entre buffers y pestañas.
-- **Búsqueda rápida**: `telescope.nvim` para buscar archivos, texto y más de manera rápida y eficiente.
+1. **Neovim 0.10 o superior** ⚡
+   - Asegúrate de tener instalada la versión más reciente de Neovim con el siguiente comando:
+     ```bash
+     nvim --version
+     ```
+   - Para actualizar Neovim en sistemas basados en Debian/Ubuntu, usa:
+     ```bash
+     sudo apt update && sudo apt upgrade -y neovim
+     ```
+   - Si usas la versión AppImage:
+     ```bash
+     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+     chmod u+x nvim.appimage
+     sudo mv nvim.appimage /usr/local/bin/nvim
+     ```
 
-### Desarrollo y Productividad
-- **Autocompletado inteligente**: `nvim-cmp` (configurado en `autocompletion.lua`) para un autocompletado rápido y preciso.
-- **Resaltado de sintaxis**: `treesitter` para un análisis y resaltado de código mejorado.
-- **Integración con Git**: `gitsigns.nvim` y `diffview.nvim` para ver cambios en tiempo real y gestionar repositorios de manera eficiente.
-- **Ejecución de código**: `code_runner.nvim` para ejecutar fragmentos de código directamente desde Neovim.
-- **Formateo de código**: `format-on-save.nvim` para guardar el código correctamente formateado.
+2. **Compilador de C** 🛠️
+   - Algunos plugins requieren compilación. Instala `gcc` en Linux con:
+     ```bash
+     sudo apt install build-essential
+     ```
 
+3. **xclip** 📋
+   - Para copiar y pegar desde la terminal, instala `xclip` con:
+     ```bash
+     sudo apt install xclip
+     ```
 
-### Personalización y Extras
-- **Transparencia**: `transparent.nvim` para una ventana de Neovim transparente (opcional).
-- **Efectos de enfoque**: `twilight.nvim` para resaltar solo la sección de código en la que estás trabajando.
-- **Terminal integrada**: `toggleterm.nvim` para una terminal flotante dentro de Neovim.
-
----
-
-## Plugins Utilizados
-
-Aquí tienes una lista de los plugins principales que forman parte de esta configuración:
-
-- **Interfaz y Estilo**:
-  - `dracula.nvim`: Tema visual.
-  - `lualine.nvim`: Barra de estado personalizada.
-  - `flash.nvim`: Efectos visuales para el cursor.
-
-- **Navegación y Archivos**:
-  - `oil.nvim`: Explorador de archivos.
-  - `barbar.nvim`: Gestión de buffers y pestañas.
-  - `telescope.nvim`: Búsqueda rápida de archivos y texto.
-
-- **Desarrollo**:
-  - `nvim-cmp`: Autocompletado inteligente.
-  - `treesitter`: Resaltado de sintaxis mejorado.
-  - `gitsigns.nvim`: Integración con Git.
-  - `diffview.nvim`: Visualización de diferencias en Git.
-  - `code_runner.nvim`: Ejecución rápida de código.
-
-- **Extras**:
-  - `transparent.nvim`: Ventana transparente.
-  - `twilight.nvim`: Efectos de enfoque en el código.
-  - `toggleterm.nvim`: Terminal integrada.
+4. **Git** 📝
+   - Para clonar el repositorio y gestionar plugins, instala `git` con:
+     ```bash
+     sudo apt install git
+     ```
 
 ---
 
-## Cómo Usar Esta Configuración
+## 🎨 Características Principales
+
+### 🌟 Interfaz y Estilo
+- **Temas personalizados**: `dracula.nvim` para un aspecto moderno.
+- **Barra de estado**: `lualine.nvim` para información clara.
+- **Efectos visuales**: `flash.nvim` para una experiencia dinámica.
+
+### 📂 Navegación y Gestión de Archivos
+- **Explorador de archivos**: `oil.nvim` para una mejor organización.
+- **Gestión de pestañas**: `barbar.nvim` para una navegación fluida.
+- **Búsqueda rápida**: `telescope.nvim` para encontrar archivos fácilmente.
+
+### 🚀 Desarrollo y Productividad
+- **Autocompletado inteligente**: `nvim-cmp`.
+- **Resaltado de sintaxis**: `treesitter`.
+- **Integración con Git**: `gitsigns.nvim` y `diffview.nvim`.
+- **Ejecución de código**: `code_runner.nvim`.
+- **Formateo automático**: `format-on-save.nvim`.
+
+### 🎭 Personalización y Extras
+- **Transparencia**: `transparent.nvim` (opcional).
+- **Efectos de enfoque**: `twilight.nvim`.
+- **Terminal integrada**: `toggleterm.nvim`.
+
+---
+
+## 🔌 Plugins Utilizados
+
+Aquí tienes una lista de los plugins principales en esta configuración:
+
+- **Interfaz y Estilo**: `dracula.nvim`, `lualine.nvim`, `flash.nvim`.
+- **Navegación**: `oil.nvim`, `barbar.nvim`, `telescope.nvim`.
+- **Desarrollo**: `nvim-cmp`, `treesitter`, `gitsigns.nvim`, `diffview.nvim`, `code_runner.nvim`.
+- **Extras**: `transparent.nvim`, `twilight.nvim`, `toggleterm.nvim`.
+
+---
+
+## 🛠️ Instalación
 
 1. Clona este repositorio en tu carpeta de configuración de Neovim:
    ```bash
    git clone https://github.com/Fabrilennart5/fabri-neovim-config.git ~/.config/nvim
-Asegúrate de tener Neovim instalado (versión 0.9 o superior).
-
-Abre Neovim y los plugins se instalarán automáticamente gracias a lazy.nvim.
