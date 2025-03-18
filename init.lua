@@ -38,7 +38,6 @@ require("lazy").setup({
 	require("plugins.extras"),
 	require("plugins.presence"),
 	require("plugins.nvimterm"),
-	require("plugins.avante"),
 	require("plugins.barbar"),
 	require("plugins.cursor"),
 	require("plugins.flash"),
@@ -52,4 +51,5 @@ require("lazy").setup({
 	require("plugins.colorizer"),
 	require("plugins.csvview"),
 	require("plugins.lazygit"),
+	require("plugins.codeium"),
 })
