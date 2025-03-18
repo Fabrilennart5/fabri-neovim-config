@@ -51,5 +51,5 @@ require("lazy").setup({
 	require("plugins.colorizer"),
 	require("plugins.csvview"),
 	require("plugins.lazygit"),
-	require("plugins.codeium"),
+	require("plugins.tabnine-nvim"),
 })
