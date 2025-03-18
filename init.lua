@@ -52,4 +52,5 @@ require("lazy").setup({
 	require("plugins.csvview"),
 	require("plugins.lazygit"),
 	require("plugins.tabnine-nvim"),
+	require("plugins.harpoon"),
 })
