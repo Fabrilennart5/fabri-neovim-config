@@ -11,7 +11,7 @@ return {
 			-- Defino los formateadores por tipo de archivo
 			formatters_by_ft = {
 				-- Para Python: uso "isort" para ordenar imports y "black" para formatear
-				python = { "isort", "black" },
+				python = { "isort", "ruff" },
 
 				-- Para Rust: uso "rustfmt" para formatear
 				rust = { "rustfmt" },

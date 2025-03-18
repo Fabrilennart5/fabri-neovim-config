@@ -29,6 +29,11 @@ vim.o.showtabline = 2 -- Mostrar siempre las pestañas, no solo cuando hay más 
 -- Colores en terminales compatibles
 vim.opt.termguicolors = true -- Permite el uso de grupos de resaltado con colores (necesario para temas)
 
+-- Transparencia del fondo
+vim.opt.background = "dark" -- Asegúrate de que el fondo sea oscuro
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Hace que el fondo sea transparente
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) -- Hace que las ventanas flotantes sean transparentes
+
 -------------------------------------------------------------------------------
 -- Sección 2: Configuración de búsqueda y resaltado
 -------------------------------------------------------------------------------
@@ -111,4 +116,4 @@ vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Evitar conflictos entre
 vim.opt.iskeyword:append("-") -- Incluir guiones como parte de palabras al buscar
 
 -- Línea de comandos
-vim.o.cmdheight = 1 -- Altura adicional para mostrar mensajes en la línea de comandosntre plugins si Vim también está instalado
+vim.o.cmdheight = 1 -- Altura adicional para mostrar mensajes en la línea de comandos
