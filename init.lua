@@ -38,7 +38,7 @@ require("lazy").setup({
 	require("plugins.extras"),
 	require("plugins.presence"),
 	require("plugins.nvimterm"),
-	require("plugins.barbar"),
+	require("plugins.tabline"),
 	require("plugins.cursor"),
 	require("plugins.flash"),
 	require("plugins.diffview"),
