@@ -36,7 +36,7 @@ require("lazy").setup({
 	require("plugins.autocompletion"),
 	require("plugins.blankline"),
 	require("plugins.extras"),
-	require("plugins.presence"),
+	require("plugins.cord"),
 	require("plugins.nvimterm"),
 	require("plugins.tabline"),
 	require("plugins.cursor"),
