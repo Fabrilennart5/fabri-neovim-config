@@ -28,7 +28,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Inicializamos y configuramos el gestor de plugins `lazy.nvim`
 require("lazy").setup({
 	require("plugins.oil"),
-	require("plugins.catppuccini"),
+	require("plugins.gruvbox"),
 	require("plugins.lualine"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
