@@ -32,7 +32,6 @@ require("lazy").setup({
 	require("plugins.lualine"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
-	require("plugins.lsp"),
 	require("plugins.blankline"),
 	require("plugins.extras"),
 	require("plugins.cord"),
@@ -44,11 +43,30 @@ require("lazy").setup({
 	require("plugins.git-messenger"),
 	require("plugins.confort"),
 	require("plugins.dashboard"),
-	require("plugins.dap"),
 	require("plugins.dadbod"),
 	require("plugins.snacks"),
 	require("plugins.csvview"),
 	require("plugins.lazygit"),
 	require("plugins.multicursors"),
-	require("plugins.nvim-jqx"),
+	require("plugins.mason"),
 })
+
+-- Cargar configuraciones de LSP automáticamente desde la carpeta lsp/
+local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp/"
+for _, file in ipairs(vim.fn.readdir(lsp_path)) do
+	local server_name = file:gsub("%.lua$", "") -- Remover extensión .lua
+
+	-- Evitar cargar init.lua aquí (ya lo cargamos abajo)
+	if server_name ~= "init" then
+		local config = require("lsp." .. server_name)
+
+		-- Configurar el servidor LSP de forma explícita
+		vim.lsp.config[server_name] = config
+
+		-- Activar el servidor LSP
+		vim.lsp.enable(server_name)
+	end
+end
+
+-- Cargo la configuración global de LSP y los mapeos
+require("lsp.init")

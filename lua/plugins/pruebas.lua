@@ -1,6 +1,0 @@
-return{
-    hello
-    hello 
-    hello
-
-}
