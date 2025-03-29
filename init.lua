@@ -49,6 +49,7 @@ require("lazy").setup({
 	require("plugins.lazygit"),
 	require("plugins.multicursors"),
 	require("plugins.mason"),
+	require("plugins.nvim-dap"),
 })
 
 -- Cargar configuraciones de LSP automáticamente desde la carpeta lsp/
