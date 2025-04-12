@@ -1,49 +1,47 @@
-return { -- Devuelve la configuración del plugin nvim-treesitter
-	"nvim-treesitter/nvim-treesitter", -- Especifica el plugin a instalar
-	build = ":TSUpdate", -- Comando para actualizar Treesitter después de la instalación
-	main = "nvim-treesitter.configs", -- Establece el módulo principal que se usará para las opciones
+return {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate", -- Actualizo parsers al instalar/actualizar
 
-	-- [[ Configuración de Treesitter ]] Consulta `:help nvim-treesitter` para más información
+	-- Configuro Treesitter para que use los colores de Gruvbox sin sobrescribirlos
 	opts = {
-		ensure_installed = { -- Lista de lenguajes que se asegurarán de estar instalados
+		-- Lenguajes que siempre quiero tener instalados
+		ensure_installed = {
 			"lua",
 			"python",
 			"javascript",
 			"typescript",
-			"vimdoc",
-			"vim",
-			"regex",
-			"terraform",
-			"sql",
-			"dockerfile",
-			"toml",
-			"json",
-			"java",
+			"bash",
 			"rust",
 			"go",
-			"gitignore",
-			"graphql",
-			"yaml",
-			"make",
-			"cmake",
-			"markdown",
-			"markdown_inline",
-			"bash",
-			"tsx",
-			"css",
 			"html",
-		},
-		-- Autoinstalar lenguajes que no están instalados
-		auto_install = true, -- Habilita la instalación automática de lenguajes
-
-		highlight = { -- Configuración para la funcionalidad de resaltado
-			enable = true, -- Habilita el resaltado de sintaxis
-			-- Algunas lenguas dependen del sistema de resaltado regex de Vim (como Ruby) para las reglas de indentación.
-			-- Si experimentas problemas extraños de indentación, añade el lenguaje a
-			-- la lista de additional_vim_regex_highlighting y desactiva lenguajes para la indentación.
-			additional_vim_regex_highlighting = { "ruby" }, -- Añade Ruby a la lista de lenguajes que usan resaltado regex adicional
+			"css",
+			"json",
+			"yaml",
+			"markdown",
+			"vim",
 		},
 
-		indent = { enable = true, disable = { "ruby" } }, -- Habilita la indentación automática, desactiva para Ruby
+		-- Autoinstalo parsers si falta alguno
+		auto_install = true,
+
+		highlight = {
+			enable = true,
+			-- Desactivo regex highlighting para evitar conflictos con Gruvbox
+			additional_vim_regex_highlighting = false,
+			-- Uso el nuevo motor de colores (más preciso)
+			use_languagetree = true,
+		},
+
+		indent = { enable = true }, -- Indentación automática
 	},
+
+	config = function(_, opts)
+		-- Primero configuro Treesitter
+		require("nvim-treesitter.configs").setup(opts)
+
+		-- Luego aseguro que Gruvbox aplique sus colores
+		vim.defer_fn(function()
+			vim.cmd("colorscheme gruvbox")
+		end, 100) -- Pequeño delay para evitar race conditions
+	end,
 }

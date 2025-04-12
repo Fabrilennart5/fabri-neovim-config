@@ -1,33 +1,85 @@
+-- Configuración principal para nvim-dap (Debug Adapter Protocol)
+-- Esta versión corrige los warnings de deprecated y mantiene toda la funcionalidad
+
 return {
 	{
-		"mfussenegger/nvim-dap", -- Uso el plugin nvim-dap para debugging en Neovim
+		"mfussenegger/nvim-dap", -- Plugin principal para debugging en Neovim
 		dependencies = {
-			"nvim-neotest/nvim-nio", -- Necesito nvim-nio para operaciones asíncronas
-			"rcarriga/nvim-dap-ui", -- Integro la interfaz de usuario para DAP
-			"mfussenegger/nvim-dap-python", -- Añado soporte específico para Python
-			"theHamsta/nvim-dap-virtual-text", -- Muestro texto virtual durante el debugging
+			"nvim-neotest/nvim-nio", -- Necesario para operaciones asíncronas
+
+			-- Configuración específica para nvim-dap-ui con solución al warning
+			{
+				"rcarriga/nvim-dap-ui",
+				config = function()
+					-- Configuración optimizada que evita el uso de funciones deprecated
+					require("dapui").setup({
+						-- Configuración básica de elementos
+						icons = {
+							expanded = "▾",
+							collapsed = "▸",
+							current_frame = "▶",
+						},
+
+						-- Layout simplificado que funciona sin warnings
+						layouts = {
+							{
+								elements = {
+									{ id = "scopes", size = 0.25 },
+									{ id = "breakpoints", size = 0.25 },
+									{ id = "stacks", size = 0.25 },
+									{ id = "watches", size = 0.25 },
+								},
+								position = "left",
+								size = 40,
+							},
+							{
+								elements = {
+									{ id = "repl", size = 0.5 },
+									{ id = "console", size = 0.5 },
+								},
+								position = "bottom",
+								size = 10,
+							},
+						},
+
+						-- Configuración de controles (actualizada)
+						controls = {
+							enabled = true,
+							element = "repl",
+						},
+					})
+				end,
+			},
+
+			"mfussenegger/nvim-dap-python", -- Debugger específico para Python
+			"theHamsta/nvim-dap-virtual-text", -- Muestra valores de variables durante debugging
 		},
 		config = function()
-			-- Cargo los módulos necesarios
-			local dap = require("dap") -- Módulo principal de debugging
-			local dapui = require("dapui") -- Interfaz de usuario
-			local dap_python = require("dap-python") -- Adaptador para Python
+			-- Cargamos los módulos necesarios
+			local dap = require("dap")
+			local dapui = require("dapui")
+			local dap_python = require("dap-python")
 
-			-- Configuro la interfaz de usuario
-			require("dapui").setup({})
-
-			-- Configuro el texto virtual durante el debugging
-			require("nvim-dap-virtual-text").setup({
-				commented = true, -- Muestro el texto virtual como comentarios
+			-- Configuración del debugger para Python
+			dap_python.setup("python", {
+				-- Opciones avanzadas para Python
+				python_path = "python3",
+				console = "integratedTerminal",
+				justMyCode = false, -- Permite depurar código de bibliotecas
 			})
 
-			-- Configuro el debugger para Python usando python3
-			dap_python.setup("python")
+			-- Configuración de texto virtual (mejorado)
+			require("nvim-dap-virtual-text").setup({
+				commented = true, -- Muestra valores como comentarios
+				enabled = true, -- Activa el plugin
+				virt_text_pos = "eol", -- Posición del texto
+				all_frames = false, -- Solo muestra valores del frame actual
+			})
 
-			-- Defino iconos visuales para los breakpoints
+			-- Definición de iconos para breakpoints (los mismos que tenías)
 			vim.fn.sign_define("DapBreakpoint", {
 				text = "", -- Icono para breakpoint activo
-				texthl = "DiagnosticSignError", -- Resaltado como error
+				texthl = "DiagnosticSignError",
 				linehl = "",
 				numhl = "",
 			})
@@ -41,53 +93,38 @@ return {
 
 			vim.fn.sign_define("DapStopped", {
 				text = "", -- Icono cuando el debugger se detiene
-				texthl = "DiagnosticSignWarn", -- Resaltado como advertencia
+				texthl = "DiagnosticSignWarn",
 				linehl = "Visual",
 				numhl = "DiagnosticSignWarn",
 			})
 
-			-- Configuro apertura automática de la interfaz al iniciar debugging
+			-- Configuración de listeners para integración con dap-ui (mejorada)
 			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
+				dapui.open({ reset = true }) -- Abre con layout limpio
 			end
 
-			local opts = { noremap = true, silent = true } -- Opciones para los atajos de teclado
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
 
-			-- Defino atajos de teclado para controlar el debugging:
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
 
-			-- <leader>db - Alternar breakpoint
-			vim.keymap.set("n", "<leader>db", function()
-				dap.toggle_breakpoint()
-			end, opts)
+			-- Atajos de teclado (opcionales, puedes mantener los tuyos)
+			local opts = { noremap = true, silent = true }
 
-			-- <leader>dc - Continuar/Iniciar sesión de debugging
-			vim.keymap.set("n", "<leader>dc", function()
-				dap.continue()
-			end, opts)
+			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, opts)
+			vim.keymap.set("n", "<leader>dc", dap.continue, opts)
+			vim.keymap.set("n", "<leader>do", dap.step_over, opts)
+			vim.keymap.set("n", "<leader>di", dap.step_into, opts)
+			vim.keymap.set("n", "<leader>dO", dap.step_out, opts)
+			vim.keymap.set("n", "<leader>dq", dap.terminate, opts)
+			vim.keymap.set("n", "<leader>du", dapui.toggle, opts)
 
-			-- <leader>do - Paso por encima (step over)
-			vim.keymap.set("n", "<leader>do", function()
-				dap.step_over()
-			end, opts)
-
-			-- <leader>di - Paso adentro (step into)
-			vim.keymap.set("n", "<leader>di", function()
-				dap.step_into()
-			end, opts)
-
-			-- <leader>dO - Paso afuera (step out)
-			vim.keymap.set("n", "<leader>dO", function()
-				dap.step_out()
-			end, opts)
-
-			-- <leader>dq - Terminar sesión de debugging
-			vim.keymap.set("n", "<leader>dq", function()
-				require("dap").terminate()
-			end, opts)
-
-			-- <leader>du - Alternar interfaz de usuario de DAP
-			vim.keymap.set("n", "<leader>du", function()
-				dapui.toggle()
+			-- Atajo adicional útil para evaluación
+			vim.keymap.set("n", "<leader>de", function()
+				dapui.eval(vim.fn.input("Expression: "))
 			end, opts)
 		end,
 	},

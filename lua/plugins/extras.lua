@@ -19,10 +19,14 @@ return {
 		opts = { signs = false }, -- No mostrar signos en los comentarios resaltados
 	},
 	{
-		-- Plugin para resaltar colores de manera eficiente
-		"norcalli/nvim-colorizer.lua",
+		-- REEMPLAZO PARA COLORIZER - Moderno y sin errores
+		"brenoprata10/nvim-highlight-colors",
 		config = function()
-			require("colorizer").setup() -- Configuración del plugin al iniciar
+			require("nvim-highlight-colors").setup({
+				render = "background", -- 'foreground' o 'background' (prefiero background)
+				enable_named_colors = true, -- Reconoce nombres de colores como 'red'
+				enable_tailwind = true, -- Soporte para colores TailwindCSS
+			})
 		end,
 	},
 }

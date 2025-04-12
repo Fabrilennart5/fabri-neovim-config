@@ -27,7 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Inicializamos y configuramos el gestor de plugins `lazy.nvim`
 require("lazy").setup({
-	require("plugins.oil"),
+	require("plugins.neo-tree"),
 	require("plugins.gruvbox"),
 	require("plugins.lualine"),
 	require("plugins.treesitter"),
@@ -35,7 +35,7 @@ require("lazy").setup({
 	require("plugins.blankline"),
 	require("plugins.extras"),
 	require("plugins.cord"),
-	require("plugins.nvimterm"),
+	require("plugins.nvterm"),
 	require("plugins.barbar"),
 	require("plugins.cursor"),
 	require("plugins.flash"),
@@ -47,9 +47,10 @@ require("lazy").setup({
 	require("plugins.snacks"),
 	require("plugins.csvview"),
 	require("plugins.lazygit"),
-	require("plugins.multicursors"),
+	require("plugins.runner"),
 	require("plugins.mason"),
 	require("plugins.nvim-dap"),
+	require("plugins.neocodeium"),
 })
 
 -- Cargar configuraciones de LSP automáticamente desde la carpeta lsp/
