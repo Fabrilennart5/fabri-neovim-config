@@ -51,6 +51,7 @@ require("lazy").setup({
 	require("plugins.mason"),
 	require("plugins.nvim-dap"),
 	require("plugins.neocodeium"),
+	require("plugins.quarto"),
 })
 
 -- Cargar configuraciones de LSP automáticamente desde la carpeta lsp/
